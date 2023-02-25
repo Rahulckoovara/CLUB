@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project2/homepage.dart';
-import 'package:project2/login.dart';
-
+import 'package:project3/loginscreen.dart';
+import 'package:project3/personaldetails.dart';
 
 class splashscreen extends StatefulWidget {
   const splashscreen({Key? key}) : super(key: key);
@@ -30,8 +29,8 @@ class _splashscreenState extends State<splashscreen> {
         backgroundColor: Colors.white,
         body: Center(
           child: Image(
-            image: AssetImage('assets/car.png'),
-            fit: BoxFit.fitWidth,
+            image: AssetImage('assets/splash.png'),
+            fit: BoxFit.cover,
             height: double.infinity,
             width: double.infinity,
            
@@ -46,9 +45,9 @@ class _splashscreenState extends State<splashscreen> {
   }
 
   Future<void> gotologinscreen() async {
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(Duration(seconds: 5));
     Navigator.of(context).pushReplacement(MaterialPageRoute(
-      builder: (context) => loginpage(),
+      builder: (context) => loginscreen(),
     ));
     
   }

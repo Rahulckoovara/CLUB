@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "255636753330",
+    "project_id": "nanma-455e3",
+    "storage_bucket": "nanma-455e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255636753330:android:d2d1e9ddf450a3ceb572ab",
+        "android_client_info": {
+          "package_name": "com.example.project3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "255636753330-604jipic3clg4j8dn1ducqi5rr1aseii.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGn-iefNWNHdNqTSbmOuwHaHhl-9Mb4sg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "255636753330-604jipic3clg4j8dn1ducqi5rr1aseii.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
