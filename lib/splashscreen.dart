@@ -45,7 +45,7 @@ class _splashscreenState extends State<splashscreen> {
   }
 
   Future<void> gotologinscreen() async {
-    await Future.delayed(Duration(seconds: 5));
+    await Future.delayed(Duration(seconds: 4));
     Navigator.of(context).pushReplacement(MaterialPageRoute(
       builder: (context) => loginscreen(),
     ));

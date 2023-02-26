@@ -23,12 +23,94 @@ class _membersState extends State<members> {
         child: 
         Column(
           children: [
+          //  Text("home"),
             StreamBuilder<QuerySnapshot>(
               stream: FirebaseFirestore.instance.collection("members").snapshots(),
-              builder: (BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot){
+              builder: (BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot)
+              {
                 if(snapshot.hasData){
                   final snap=snapshot.data!.docs; 
-                }else{
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    primary: false,
+                    itemCount: snap.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 70,
+                        //margin: EdgeInsets.only(top: 1),
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Colors.blue[100],
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              offset: Offset(2, 2)
+                            ),
+                          ],
+                    
+                        ),
+                        child: Stack(
+                          children: [
+                                     Container(
+                              margin: EdgeInsets.only(left: 19),
+                              alignment: Alignment.centerLeft,
+                            
+                            child: Text(
+                              
+                              snap[index]['name'],style: 
+                            TextStyle(
+                              fontFamily: 'Times New Roman',
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            ),
+                            ),
+                                    
+                                     Container(
+                             margin: EdgeInsets.fromLTRB(0, 15, 20, 0),
+                              alignment: Alignment.centerRight,
+                            
+                            child: Column(
+                              children: [
+                                Text(
+                                  "Balance:"+ snap[index]['Amount']+" Cr".toString()
+                                  ,style: 
+                                TextStyle(
+                                  color: Colors.green.withOpacity(0.8),
+                                //  fontWeight: FontWeight.bold
+                                ),
+                                ),
+                              ],
+                            ),
+                            ),
+                               Container(
+                              margin: EdgeInsets.fromLTRB(0, 15, 20, 0),
+                              alignment: Alignment.centerRight,
+                            
+                            child: Text(
+                              "Attendance:"+ snap[index]['Attendance'].toString()
+                              ,style: 
+                            TextStyle(
+                              color: Colors.green.withOpacity(0.8),
+                            //  fontWeight: FontWeight.bold
+                            ),
+                            ),)
+                          ],
+                    
+                        ),
+                      ),
+                    );
+                    
+                    
+                  },
+                  );
+                  
+                  
+                }
+                else{
                   return const SizedBox();
                 }
               }

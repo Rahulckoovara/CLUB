@@ -1,6 +1,7 @@
  import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project3/loginscreen.dart';
+import 'package:project3/members.dart';
 import 'package:project3/new.dart';
 import 'package:project3/splashscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -9,7 +10,7 @@ Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
 await Firebase.initializeApp(
    options: FirebaseOptions(
-      apiKey: "AIzaSyBc1fNz80WrXVuyfxpY_sWpPkr0-MpL0so", // Your apiKey
+      apiKey: "AIzaSyAGn-iefNWNHdNqTSbmOuwHaHhl-9Mb4sg", // Your apiKey
       appId: "com.example.project3", // Your appId
      messagingSenderId: "255636753330", // Your messagingSenderId
       projectId: "nanma-455e3", // Your projectId
