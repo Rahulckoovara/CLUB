@@ -7,6 +7,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:project3/loans.dart';
 import 'package:project3/new.dart';
 import 'package:project3/members.dart';
+import 'package:project3/notice.dart';
 //import 'package:flutter/src/foundation/key.dart';
 //import 'package:flutter/src/widgets/framework.dart';
 //import '';
@@ -168,7 +169,7 @@ fontWeight: FontWeight.w900)
     ),
 	child: new Center(
 	  child: TextButton(onPressed: (){
-      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>loans()));
+      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>notice()));
     }, child: Text('NOTICE',style: TextStyle(color: Colors.white,fontSize: 20
     ,    fontFamily: 'Times New Roman',
 fontWeight: FontWeight.w900)

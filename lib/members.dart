@@ -19,104 +19,115 @@ class _membersState extends State<members> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: Text('MEMBERS',style: TextStyle(
+          fontWeight: FontWeight.bold
+        ),),
+        centerTitle: true,
+        toolbarHeight: 70,
+      ),
       body: SingleChildScrollView(
         child: 
-        Column(
-          children: [
-          //  Text("home"),
-            StreamBuilder<QuerySnapshot>(
-              stream: FirebaseFirestore.instance.collection("members").snapshots(),
-              builder: (BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot)
-              {
-                if(snapshot.hasData){
-                  final snap=snapshot.data!.docs; 
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    primary: false,
-                    itemCount: snap.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 70,
-                        //margin: EdgeInsets.only(top: 1),
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          color: Colors.blue[100],
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black26,
-                              offset: Offset(2, 2)
-                            ),
-                          ],
-                    
-                        ),
-                        child: Stack(
-                          children: [
-                                     Container(
-                              margin: EdgeInsets.only(left: 19),
-                              alignment: Alignment.centerLeft,
-                            
-                            child: Text(
+        SafeArea(
+          
+          child: Column(
+            children: [
+            //Text("MEMBERS"),
+              StreamBuilder<QuerySnapshot>(
+                stream: FirebaseFirestore.instance.collection("members").snapshots(),
+                builder: (BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot)
+                {
+                  if(snapshot.hasData){
+                    final snap=snapshot.data!.docs; 
+                    return ListView.builder(
+                      shrinkWrap: true,
+                      primary: false,
+                      itemCount: snap.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          height: 70,
+                          //margin: EdgeInsets.only(top: 1),
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Colors.blue[100],
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black26,
+                                offset: Offset(2, 2)
+                              ),
+                            ],
+                      
+                          ),
+                          child: Stack(
+                            children: [
+                                       Container(
+                                margin: EdgeInsets.only(left: 19),
+                                alignment: Alignment.centerLeft,
                               
-                              snap[index]['name'],style: 
-                            TextStyle(
-                              fontFamily: 'Times New Roman',
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            ),
-                            ),
-                                    
-                                     Container(
-                             margin: EdgeInsets.fromLTRB(0, 15, 20, 0),
-                              alignment: Alignment.centerRight,
-                            
-                            child: Column(
-                              children: [
-                                Text(
-                                  "Balance:"+ snap[index]['Amount']+" Cr".toString()
-                                  ,style: 
-                                TextStyle(
-                                  color: Colors.green.withOpacity(0.8),
-                                //  fontWeight: FontWeight.bold
-                                ),
-                                ),
-                              ],
-                            ),
-                            ),
-                               Container(
-                              margin: EdgeInsets.fromLTRB(0, 15, 20, 0),
-                              alignment: Alignment.centerRight,
-                            
-                            child: Text(
-                              "Attendance:"+ snap[index]['Attendance'].toString()
-                              ,style: 
-                            TextStyle(
-                              color: Colors.green.withOpacity(0.8),
-                            //  fontWeight: FontWeight.bold
-                            ),
-                            ),)
-                          ],
-                    
+                              child: Text(
+                                
+                                snap[index]['name'],style: 
+                              TextStyle(
+                                fontFamily: 'Times New Roman',
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              ),
+                              ),
+                                      
+                                       Container(
+                               margin: EdgeInsets.fromLTRB(0, 15, 20, 0),
+                                alignment: Alignment.centerRight,
+                              
+                              child: Column(
+                                children: [
+                                  Text(
+                                    "Balance:"+ snap[index]['Amount']+" Cr".toString()
+                                    ,style: 
+                                  TextStyle(
+                                    color: Colors.green,
+                                  //  fontWeight: FontWeight.bold
+                                  ),
+                                  ),
+                                ],
+                              ),
+                              ),
+                                 Container(
+                                margin: EdgeInsets.fromLTRB(0, 21, 20, 0),
+                                alignment: Alignment.centerRight,
+                              
+                              child: Text(
+                                "Attendance:"+ snap[index]['Attendance'].toString()
+                                ,style: 
+                              TextStyle(
+                                color: Colors.green,
+                              //  fontWeight: FontWeight.bold
+                              ),
+                              ),)
+                            ],
+                      
+                          ),
                         ),
-                      ),
+                      );
+                      
+                      
+                    },
                     );
                     
                     
-                  },
-                  );
-                  
-                  
+                  }
+                  else{
+                    return const SizedBox();
+                  }
                 }
-                else{
-                  return const SizedBox();
-                }
-              }
-        ,
-            )
-          ],
+          ,
+              )
+            ],
+          ),
         ),
       ),
     );
